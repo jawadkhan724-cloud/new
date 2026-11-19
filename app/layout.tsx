@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Plus_Jakarta_Sans } from "next/font/google";
 import Header from "@/components/Header";
-import { FloatingWA, Footer } from "@/components/Blocks";
+import { FloatingWA, Footer, MobileBar } from "@/components/Blocks";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -33,10 +33,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body>
+        <a className="skip" href="#main">Skip to content</a>
         <Header />
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <Footer />
         <FloatingWA />
+        <MobileBar />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       </body>
     </html>

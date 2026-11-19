@@ -112,3 +112,13 @@ export function ContactCards() {
     </div>
   );
 }
+
+/** Phone-only bar pinned to the bottom of the screen: the two ways patients book. */
+export function MobileBar() {
+  return (
+    <div className="mbar">
+      <a href={`tel:${site.phoneIntl}`}><Phone /> Call now</a>
+      <a className="wa" href={wa()} target="_blank" rel="noopener"><WhatsApp /> WhatsApp</a>
+    </div>
+  );
+}
