@@ -11,7 +11,7 @@ const p = getPage("soothex-pain-relief-oil");
 export const metadata: Metadata = {
   title: "Soothex Pain Relief Oil – Joint, Back & Muscle Pain Relief",
   description: p.description,
-  alternates: { canonical: "/shop/soothex-pain-relief-oil" },
+  alternates: { canonical: "/product/soothex-pain-relief-oil/" },
   openGraph: { images: ["/images/2025_10_images.jpeg"] },
 };
 

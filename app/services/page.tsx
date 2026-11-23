@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Physiotherapy Services in Rawalpindi & Islamabad",
   description: "Home physiotherapy, pre and post-operative rehab, women’s health, pediatric, neurological rehabilitation and hijama in Rawalpindi & Islamabad.",
-  alternates: { canonical: "/services" },
+  alternates: { canonical: "/services/" },
 };
 
 export default function ServicesPage() {

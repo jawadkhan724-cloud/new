@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact Us & Book a Physiotherapist",
   description: `Book physiotherapy at home or in clinic in Rawalpindi & Islamabad. Call ${site.phone}, WhatsApp us or email ${site.email}.`,
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: "/contact-us/" },
 };
 
 export default function Contact() {

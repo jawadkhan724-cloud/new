@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us & Our Physiotherapy Team",
   description: "Meet the certified physiotherapists, surgeon, speech therapist and hijama therapist behind Home Physio Pro in Rawalpindi & Islamabad.",
-  alternates: { canonical: "/about" },
+  alternates: { canonical: "/about-us/" },
 };
 
 const about = getPage("about-us");

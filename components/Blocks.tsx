@@ -14,15 +14,16 @@ export function Footer() {
           </div>
           <div>
             <h4>Services</h4>
-            <ul>{services.map((s) => <li key={s.slug}><Link href={`/services/${s.slug}`}>{s.name}</Link></li>)}</ul>
+            <ul>{services.map((s) => <li key={s.slug}><Link href={s.path}>{s.name}</Link></li>)}</ul>
           </div>
           <div>
             <h4>Company</h4>
             <ul>
-              <li><Link href="/about">About us</Link></li>
-              <li><Link href="/about#team">Our team</Link></li>
-              <li><Link href="/shop/soothex-pain-relief-oil">Shop</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
+              <li><Link href="/about-us/">About us</Link></li>
+              <li><Link href="/about-us/#team">Our team</Link></li>
+              <li><Link href="/product/soothex-pain-relief-oil/">Shop</Link></li>
+              <li><Link href="/blogs/">Blogs</Link></li>
+              <li><Link href="/contact-us/">Contact</Link></li>
               <li><a href={site.facebook} target="_blank" rel="noopener">Facebook</a></li>
             </ul>
           </div>
@@ -52,7 +53,7 @@ export function ServiceCards({ exclude }: { exclude?: string }) {
   return (
     <div className="grid g3">
       {services.filter((s) => s.slug !== exclude).map((s) => (
-        <Link key={s.slug} href={`/services/${s.slug}`} className="card">
+        <Link key={s.slug} href={s.path} className="card">
           <span className="ico"><ServiceIcon name={s.icon} /></span>
           <h3>{s.name}</h3>
           <p>{s.blurb}</p>

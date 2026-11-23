@@ -45,7 +45,7 @@ export default function Header() {
                   <button className={active(n.href) ? "active" : ""} aria-haspopup="true">Services <Chevron /></button>
                   <div className="dd-panel">
                     {services.map((s) => (
-                      <Link key={s.slug} href={`/services/${s.slug}`}>
+                      <Link key={s.slug} href={s.path}>
                         <span className="ico"><ServiceIcon name={s.icon} /></span>
                         <span><b>{s.name}</b><span>{s.blurb.split(",")[0]}.</span></span>
                       </Link>
@@ -69,7 +69,7 @@ export default function Header() {
           <div key={n.href}>
             <Link href={n.href}>{n.label}</Link>
             {n.label === "Services" && (
-              <div className="sub">{services.map((s) => <Link key={s.slug} href={`/services/${s.slug}`}>{s.name}</Link>)}</div>
+              <div className="sub">{services.map((s) => <Link key={s.slug} href={s.path}>{s.name}</Link>)}</div>
             )}
           </div>
         ))}

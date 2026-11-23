@@ -1,3 +1,4 @@
+export const dynamicParams = false;
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -10,21 +11,23 @@ import { services, site, wa } from "@/lib/site";
 const CTA_RE = /^(start your|schedule your|get started|contact us)/i;
 
 export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return services.map((s) => ({ service: s.path.slice(1, -1) }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-  const s = services.find((x) => x.slug === slug);
+export async function generateMetadata({ params }: { params: Promise<{ service: string }> }): Promise<Metadata> {
+  const { service } = await params;
+  const s = services.find((x) => x.path === `/${service}/`);
   if (!s) return {};
+  const slug = s.slug;
   const p = getPage(slug);
-  return { title: p.title.replace(/\s*[-|]\s*Home Physio Pro$/i, "").replace("Isalambad", "Islamabad"), description: p.description || s.blurb, alternates: { canonical: `/services/${slug}` } };
+  return { title: p.title.replace(/\s*[-|]\s*Home Physio Pro$/i, "").replace("Isalambad", "Islamabad"), description: p.description || s.blurb, alternates: { canonical: s.path } };
 }
 
-export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const svc = services.find((s) => s.slug === slug);
+export default async function ServicePage({ params }: { params: Promise<{ service: string }> }) {
+  const { service } = await params;
+  const svc = services.find((s) => s.path === `/${service}/`);
   if (!svc) notFound();
+  const slug = svc.slug;
   const page = getPage(slug);
   const h1 = page.sections.find((s) => s.level === 1) ?? page.sections[0];
   const intro = paras(h1);
@@ -40,7 +43,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     <>
       <section className="page-hero">
         <div className="wrap">
-          <div className="crumbs"><Link href="/">Home</Link> / <Link href="/services">Services</Link> / {svc.name}</div>
+          <div className="crumbs"><Link href="/">Home</Link> / <Link href="/services/">Services</Link> / {svc.name}</div>
           <div className="ph-grid">
             <div>
               <span className="ico" style={{ width: 56, height: 56, borderRadius: 16, marginBottom: 20, background: "#fff" }}><ServiceIcon name={svc.icon} /></span>

@@ -96,7 +96,7 @@ export default function Home() {
             <p>From post-surgery rehab to children’s therapy and hijama, choose the care you need, at home or in clinic.</p>
           </div>
           <ServiceCards />
-          <p style={{ textAlign: "center", marginTop: 34 }}><Link className="lbtn dark" href="/services">All services <Arrow /></Link></p>
+          <p style={{ textAlign: "center", marginTop: 34 }}><Link className="lbtn dark" href="/services/">All services <Arrow /></Link></p>
         </div>
       </section>
 
@@ -187,7 +187,7 @@ export default function Home() {
               <h3>Soothex Pain Relief Oil</h3>
               <p className="muted">Natural, fast-absorbing relief for joint, back and muscle pain, recommended by our physiotherapists between sessions.</p>
               <p className="price">Rs 650 – Rs 1,350</p>
-              <Link className="lbtn dark" href="/shop/soothex-pain-relief-oil">View product <Arrow /></Link>
+              <Link className="lbtn dark" href="/product/soothex-pain-relief-oil/">View product <Arrow /></Link>
             </div>
           </div>
         </div>

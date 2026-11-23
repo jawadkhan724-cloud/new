@@ -1,18 +1,20 @@
-/** Old WordPress URLs → new URLs (301), so existing Google rankings and links carry over. */
+/** Keep the original homephysiopro.com URLs; send short/new-style paths to them (301). */
 const old = {
-  "/physiotherapy-home-services-in-rawalpindi-and-islamabad": "/services/physiotherapy-home-services",
-  "/pre-and-post-operative-physiotherapy": "/services/pre-post-operative-physiotherapy",
-  "/women-health-physiotherapy": "/services/women-health-physiotherapy",
-  "/pediatric-physiotherapy-in-rawalpindi-and-islamabad": "/services/pediatric-physiotherapy",
-  "/neurological-rehabilitation-in-rawalpindi-and-islamabad": "/services/neurological-rehabilitation",
-  "/hijama-cupping-center-in-rawalpindi-and-islamabad": "/services/hijama-cupping-therapy",
-  "/product/soothex-pain-relief-oil": "/shop/soothex-pain-relief-oil",
-  "/product-category/liquid": "/shop/soothex-pain-relief-oil",
-  "/shop": "/shop/soothex-pain-relief-oil",
-  "/about-us": "/about",
-  "/contact-us": "/contact",
+  "/services/physiotherapy-home-services": "/physiotherapy-home-services-in-rawalpindi-and-islamabad/",
+  "/services/pre-post-operative-physiotherapy": "/pre-and-post-operative-physiotherapy/",
+  "/services/women-health-physiotherapy": "/women-health-physiotherapy/",
+  "/services/pediatric-physiotherapy": "/pediatric-physiotherapy-in-rawalpindi-and-islamabad/",
+  "/services/neurological-rehabilitation": "/neurological-rehabilitation-in-rawalpindi-and-islamabad/",
+  "/services/hijama-cupping-therapy": "/hijama-cupping-center-in-rawalpindi-and-islamabad/",
+  "/shop/soothex-pain-relief-oil": "/product/soothex-pain-relief-oil/",
+  "/shop": "/product/soothex-pain-relief-oil/",
+  "/product-category/liquid": "/product/soothex-pain-relief-oil/",
+  "/about": "/about-us/",
+  "/contact": "/contact-us/",
+  "/blog": "/blogs/",
 };
 export default {
+  trailingSlash: true,
   async redirects() {
     return Object.entries(old).map(([source, destination]) => ({ source, destination, permanent: true }));
   },
