@@ -141,10 +141,10 @@ export default function Home() {
       {/* WHY US (dark) */}
       <section className="block ldark">
         <div className="wrap lstats">
-          <div className="st t"><b>{site.years}+</b><span>Years in the twin cities</span></div>
+          <div className="st ph-st big"><Image src={IMG.stretch} alt="Physiotherapist stretching a patient's leg" fill sizes="(max-width: 1020px) 100vw, 360px" /><b>{site.years}+</b><span>Years in the twin cities</span></div>
           <div className="lstat-col">
-            <div className="st w"><b>24/7</b><span>Home physiotherapy</span></div>
-            <div className="st b"><b>13</b><span>Physiotherapy specialties</span></div>
+            <div className="st ph-st"><Image src={IMG.shoulder} alt="Physiotherapist treating a patient's shoulder" fill sizes="(max-width: 1020px) 50vw, 300px" /><b>24/7</b><span>Home physiotherapy</span></div>
+            <div className="st ph-st"><Image src={IMG.exercise} alt="Patient doing a guided balance exercise" fill sizes="(max-width: 1020px) 50vw, 300px" /><b>13</b><span>Physiotherapy specialties</span></div>
           </div>
           <div>
             <span className="tag light">Why Home Physio Pro</span>

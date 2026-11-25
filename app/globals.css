@@ -574,3 +574,39 @@ footer.site ul a, footer.site ul li { display: inline-block; padding: 6px 0; }
 @media (max-width: 400px) { .product-img { padding: 18px; } .product h1 { font-size: clamp(1.7rem, 8vw, 2.2rem); overflow-wrap: anywhere; } }
 img, video { max-width: 100%; height: auto; }
 .sizes { flex-wrap: wrap; } @media (max-width: 400px) { .sizes button { padding: 12px 16px; } }
+
+/* Stat tiles with photos */
+.st.ph-st { position: relative; overflow: hidden; color: #fff; min-height: 220px; justify-content: flex-end; outline-color: rgba(255,255,255,.18); }
+.st.ph-st.big { min-height: 100%; }
+.st.ph-st img { object-fit: cover; z-index: 0; transition: transform .6s ease; }
+.st.ph-st::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,38,58,.05) 30%, rgba(6,38,58,.88)); z-index: 1; }
+.st.ph-st:hover img { transform: scale(1.05); }
+.st.ph-st b, .st.ph-st span { position: relative; z-index: 2; }
+.st.ph-st b { color: var(--turq); }
+@media (max-width: 1020px) { .st.ph-st.big { min-height: 260px; } }
+
+/* Two-column checklists: flow as columns so a long item doesn't leave a gap beside short ones */
+.checklist.two { display: block; columns: 2; column-gap: 28px; }
+.checklist.two li { break-inside: avoid; margin-bottom: 12px; }
+@media (max-width: 640px) { .checklist.two { columns: 1; } }
+
+/* Blog */
+.posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+.post-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; color: inherit; text-decoration: none; transition: transform .25s, box-shadow .25s; }
+.post-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.post-card .pimg { position: relative; aspect-ratio: 16 / 10; }
+.post-card .pimg img { object-fit: cover; }
+.post-card .pbody { padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.post-card .pmeta { font-size: .78rem; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: .05em; }
+.post-card h3 { margin: 0; font-size: 1.2rem; }
+.post-card p { margin: 0; color: var(--muted); }
+.post-card .more { margin-top: auto; padding-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--navy); }
+.post-card .more svg { width: 16px; height: 16px; }
+.wrap.narrow { max-width: 780px; }
+.article-img { position: relative; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; margin-bottom: 34px; }
+.article-img img { object-fit: cover; }
+.article h2 { font-size: 1.5rem; margin: 34px 0 12px; }
+.article p, .article li { font-size: 1.05rem; line-height: 1.75; color: var(--ink-2); }
+.article ul { padding-left: 22px; display: grid; gap: 6px; }
+@media (max-width: 1020px) { .posts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .posts { grid-template-columns: minmax(0, 1fr); } }

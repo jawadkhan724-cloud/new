@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CTA } from "@/components/Blocks";
 import { Arrow } from "@/components/Icons";
-import { services, site } from "@/lib/site";
+import { fmtDate, posts } from "@/lib/blogs";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Physiotherapy Blog & Health Tips",
@@ -17,17 +19,21 @@ export default function BlogsPage() {
         <div className="wrap">
           <div className="crumbs"><Link href="/">Home</Link> / Blogs</div>
           <h1>Physiotherapy guides &amp; recovery tips</h1>
-          <p className="lead">Practical advice from our physiotherapists on pain relief, rehab after surgery, women’s health and staying active at home.</p>
+          <p className="lead">Practical advice from our physiotherapists on pain relief, rehab after surgery and staying active at home.</p>
         </div>
       </section>
       <section className="block" style={{ paddingTop: 60 }}>
         <div className="wrap">
-          <div className="grid g3">
-            {services.map((s) => (
-              <Link key={s.slug} href={s.path} className="card">
-                <h3>{s.name}</h3>
-                <p>{s.blurb}</p>
-                <span className="more">Read guide <Arrow /></span>
+          <div className="posts">
+            {posts.map((p) => (
+              <Link key={p.slug} href={`/blogs/${p.slug}/`} className="post-card">
+                <div className="pimg"><Image src={p.image} alt="" fill sizes="(max-width: 760px) 100vw, 380px" /></div>
+                <div className="pbody">
+                  <span className="pmeta">{p.category} · {fmtDate(p.date)}</span>
+                  <h3>{p.title}</h3>
+                  <p>{p.excerpt}</p>
+                  <span className="more">Read article <Arrow /></span>
+                </div>
               </Link>
             ))}
           </div>
